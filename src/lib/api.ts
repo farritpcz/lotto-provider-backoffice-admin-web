@@ -58,3 +58,47 @@ export const adminApi = {
   getSettings: () => api.get('/settings'),
   updateSettings: (d: Record<string, unknown>) => api.put('/settings', d),
 }
+
+// =============================================================================
+// Aliases — ชื่อเดียวกับ standalone-admin-web (#6) เพื่อ share pages ได้
+// =============================================================================
+export const adminAuthApi = {
+  login: (data: { username: string; password: string }) => api.post('/auth/login', data),
+}
+export const dashboardApi = { getStats: () => api.get('/dashboard') }
+export const memberMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/members', { params: p }),
+  get: (id: number) => api.get(`/members/${id}`),
+  update: (id: number, d: Record<string, unknown>) => api.put(`/members/${id}`, d),
+  updateStatus: (id: number, s: string) => api.put(`/members/${id}/status`, { status: s }),
+}
+export const lotteryMgmtApi = {
+  list: () => api.get('/lotteries'),
+  create: (d: Record<string, unknown>) => api.post('/lotteries', d),
+  update: (id: number, d: Record<string, unknown>) => api.put(`/lotteries/${id}`, d),
+}
+export const roundMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/rounds', { params: p }),
+  create: (d: Record<string, unknown>) => api.post('/rounds', d),
+}
+export const resultMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/results', { params: p }),
+  submit: (roundId: number, d: Record<string, unknown>) => api.post(`/results/${roundId}`, d),
+}
+export const banMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/bans', { params: p }),
+  create: (d: Record<string, unknown>) => api.post('/bans', d),
+  delete: (id: number) => api.delete(`/bans/${id}`),
+}
+export const rateMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/rates', { params: p }),
+  update: (id: number, d: Record<string, unknown>) => api.put(`/rates/${id}`, d),
+}
+export const reportApi = {
+  summary: (p?: Record<string, unknown>) => api.get('/reports/summary', { params: p }),
+  profit: (p?: Record<string, unknown>) => api.get('/reports/profit', { params: p }),
+}
+export const settingApi = {
+  get: () => api.get('/settings'),
+  update: (d: Record<string, unknown>) => api.put('/settings', d),
+}
