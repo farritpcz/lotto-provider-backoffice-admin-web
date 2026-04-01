@@ -80,6 +80,13 @@ export const lotteryMgmtApi = {
 export const roundMgmtApi = {
   list: (p?: Record<string, unknown>) => api.get('/rounds', { params: p }),
   create: (d: Record<string, unknown>) => api.post('/rounds', d),
+  updateStatus: (id: number, s: string) => api.put(`/rounds/${id}/status`, { status: s }),
+}
+export const betMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/bets', { params: p }),
+}
+export const txMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/transactions', { params: p }),
 }
 export const resultMgmtApi = {
   list: (p?: Record<string, unknown>) => api.get('/results', { params: p }),
