@@ -12,7 +12,7 @@
 'use client'
 
 export default function AdminDashboard() {
-  // TODO: fetch จาก dashboardApi.getStats()
+  // AIDEV-TODO(farri, 2026-04-21): fetch จาก adminApi.getDashboard() (backend พร้อมแล้ว — ดู backoffice-api admin_dashboard.md)
   const stats = {
     totalMembers: 0,
     activeMembers: 0,
@@ -40,14 +40,18 @@ export default function AdminDashboard() {
       <div className="bg-gray-800 rounded-xl p-6 mb-6">
         <h2 className="text-white font-semibold mb-4">กราฟยอดแทง 7 วันย้อนหลัง</h2>
         <div className="h-64 flex items-center justify-center text-gray-500">
-          TODO: recharts BarChart
+          {/* AIDEV-TODO(farri, 2026-04-21): recharts BarChart — ดู admin-web/dashboard/page.tsx เป็น reference */}
+          (แผนภูมิยังไม่ได้ผูก)
         </div>
       </div>
 
       {/* Recent bets */}
       <div className="bg-gray-800 rounded-xl p-6">
         <h2 className="text-white font-semibold mb-4">การแทงล่าสุด</h2>
-        <div className="text-gray-500 text-sm">TODO: ตาราง bets ล่าสุด</div>
+        <div className="text-gray-500 text-sm">
+          {/* AIDEV-TODO(farri, 2026-04-21): ตาราง bets ล่าสุด — ใช้ adminApi.bets.list({ per_page: 10, order: 'desc' }) */}
+          (ยังไม่ได้ผูก API)
+        </div>
       </div>
     </div>
   )
